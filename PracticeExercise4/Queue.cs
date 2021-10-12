@@ -23,6 +23,11 @@ namespace PracticeExercise4
 
         public T Dequeue()
         {
+            if( IsEmpty )
+            {
+                throw new EmptyQueueException();
+            }
+
             T firstItem = linkedList.First.Value;
 
             linkedList.RemoveFirst();

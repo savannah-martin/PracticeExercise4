@@ -23,6 +23,11 @@ namespace PracticeExercise4
 
         public T Pop()
         {
+            if( IsEmpty)
+            {
+                throw new EmptyStackException();
+            }
+
             T topOfStack = linkedList.Last.Value;
             linkedList.RemoveLast();
 
