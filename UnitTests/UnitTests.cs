@@ -24,25 +24,25 @@ namespace UnitTests
         [TestMethod]
         public void TestStackPop()
         {
-
+            // judah
         }
 
         [TestMethod]
         public void TestStackPeek()
         {
-
+            // lou
         }
 
         [TestMethod]
         public void TestStackLength()
         {
-
+            // danny
         }
 
         [TestMethod]
         public void TestStackIsEmpty()
         {
-
+            // kelly
         }
 
 
@@ -50,7 +50,7 @@ namespace UnitTests
         [TestMethod]
         public void TestQueueDequeue()
         {
-
+            // lauren 
         }
 
         [TestMethod]
@@ -78,74 +78,74 @@ namespace UnitTests
         [TestMethod]
         public void TestQueueFirst()
         {
-
+            // savannah 
         }
 
         [TestMethod]
         public void TestQueueLast()
         {
-
+            // zach
         }
 
         [TestMethod]
         public void TestQueueIsEmpty()
         {
-
+            // kenan
         }
 
         [TestMethod]
         public void TestQueueLength()
         {
-
+            // john allen
         }
 
         [TestMethod]
         public void TestDequeAddFront()
         {
-
+            // sean
         }
 
         [TestMethod]
         public void TestDequeAddBack()
         {
-
+            // tristan
         }
 
         [TestMethod]
         public void TestDequeRemoveFront()
         {
-
+            // madison 
         }
 
         [TestMethod]
         public void TestDequeRemoveBack()
         {
-
+            // kenan
         }
 
 
         [TestMethod]
         public void TestDequeIsEmpty()
         {
-
+            // kenan
         }
 
         [TestMethod]
         public void TestDequeLength()
         {
-
+            // kenan
         }
 
         [TestMethod]
         public void TestDequeFront()
         {
-
+            // kenan
         }
 
         [TestMethod]
         public void TestDequeBack()
         {
-
+            // kenan 
         }
     }
 }
