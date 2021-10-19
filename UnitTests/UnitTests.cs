@@ -78,7 +78,27 @@ namespace UnitTests
         [TestMethod]
         public void TestQueueFirst()
         {
-            // savannah 
+           var list = new Queue<int>();
+
+            Assert.ThrowsException<EmptyQueueException>(() =>
+            {
+                int i = list.First;
+            });
+
+            for (int i = 0; i < 10; i++)
+            {
+                list.Enqueue(i);
+                Assert.AreEqual(0, list.First);
+            }
+
+            Assert.AreEqual(10, list.Length);
+
+            for (int i = 0; i < 32; i++)
+            {
+                list.Enqueue(i);
+                Assert.AreEqual(0, list.First);
+            }
+
         }
 
         [TestMethod]
