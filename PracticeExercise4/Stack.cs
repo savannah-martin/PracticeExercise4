@@ -23,7 +23,7 @@ namespace PracticeExercise4
 
         public T Pop()
         {
-            if( IsEmpty)
+            if (IsEmpty)
             {
                 throw new EmptyStackException();
             }
@@ -36,7 +36,7 @@ namespace PracticeExercise4
 
         public void Push(T item)
         {
-            linkedList.AddLast( item );
+            linkedList.AddLast(item);
         }
 
         public override string ToString()
@@ -44,6 +44,7 @@ namespace PracticeExercise4
             string result = "";
 
             var currentNode = linkedList.Last;
+
             while (currentNode != null)
             {
                 result += currentNode.Value + "\n";
