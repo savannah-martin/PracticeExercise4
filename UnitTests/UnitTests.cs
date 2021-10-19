@@ -50,7 +50,43 @@ namespace UnitTests
         [TestMethod]
         public void TestQueueDequeue()
         {
-            // lauren 
+            Queue<int> queue = new Queue<int>();
+
+            for (int i = 1; i < 10; i++)
+            {
+                queue.Enqueue(i);
+            }
+
+            Assert.AreEqual( 1, queue.Dequeue());
+            Assert.AreEqual( 2, queue.Dequeue());
+
+            Assert.AreEqual(7, queue.Length);
+            Assert.AreEqual("<Back> 9 → 8 → 7 → 6 → 5 → 4 → 3 <Front>", queue.ToString());
+
+            queue.Dequeue();
+            queue.Dequeue();
+            Assert.AreEqual(5, queue.Length);
+            Assert.AreEqual("<Back> 9 → 8 → 7 → 6 → 5 <Front>", queue.ToString());
+
+            queue.Dequeue();
+            queue.Dequeue();
+            queue.Dequeue();
+            queue.Dequeue();
+            queue.Dequeue();
+            Assert.AreEqual(0, queue.Length);
+            Assert.AreEqual("<Back>  <Front>", queue.ToString());
+
+            Assert.ThrowsException<EmptyQueueException>(() =>
+            {
+                queue.Dequeue();
+            });
+
+            Queue<int> queue1 = new Queue<int>();
+            Assert.ThrowsException<EmptyQueueException>(() =>
+            {
+                queue1.Dequeue();
+            });
+
         }
 
         [TestMethod]
