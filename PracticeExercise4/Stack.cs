@@ -45,21 +45,6 @@ namespace PracticeExercise4
 
             var currentNode = linkedList.Last;
 
-            while (currentNode != null)
-            {
-                result += currentNode.Value + "\n";
-                currentNode = currentNode.Previous;
-            }
-
-            return result;
-        }
-
-        public override string ToString()
-        {
-            string result = "";
-
-            var currentNode = linkedList.Last;
-
             while( currentNode != null)
             {
                 result += currentNode.Value + "\n";
