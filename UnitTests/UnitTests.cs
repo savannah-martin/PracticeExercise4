@@ -57,6 +57,40 @@ namespace UnitTests
         public void TestStackPeek()
         {
             // lou
+            var stack = new Stack<int>();
+
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+            stack.Push(5);
+            stack.Push(8);
+
+            Assert.AreEqual(5, stack.Length);
+
+            Assert.AreEqual("8\n5\n3\n2\n1\n", stack.ToString());
+            stack.Pop();
+            Assert.AreEqual(5, stack.Peek());
+            Assert.AreEqual(4, stack.Length);
+            Assert.AreEqual("5\n3\n2\n1\n", stack.ToString());
+
+            stack.Pop();
+
+            Assert.AreEqual(3, stack.Peek());
+            Assert.AreEqual(3, stack.Length);
+
+            Assert.AreEqual("3\n2\n1\n", stack.ToString());
+
+            stack.Pop();
+            stack.Pop();
+            stack.Pop();
+
+            Assert.AreEqual(0, stack.Length);
+
+            Assert.ThrowsException<EmptyStackException>(() =>
+            {
+                stack.Peek();
+            });
+
         }
 
         [TestMethod]
@@ -130,8 +164,8 @@ namespace UnitTests
                 queue.Enqueue(i);
             }
 
-            Assert.AreEqual( 1, queue.Dequeue());
-            Assert.AreEqual( 2, queue.Dequeue());
+            Assert.AreEqual(1, queue.Dequeue());
+            Assert.AreEqual(2, queue.Dequeue());
 
             Assert.AreEqual(7, queue.Length);
             Assert.AreEqual("<Back> 9 → 8 → 7 → 6 → 5 → 4 → 3 <Front>", queue.ToString());
@@ -168,6 +202,7 @@ namespace UnitTests
         [TestMethod]
         public void TestQueueEnqueue()
         {
+            // 
             Queue<int> queue = new Queue<int>();
 
             queue.Enqueue(1);
@@ -194,7 +229,7 @@ namespace UnitTests
 
             var queue = new Queue<int>();
 
-            Assert.ThrowsException<EmptyQueueException>( () =>
+            Assert.ThrowsException<EmptyQueueException>(() =>
             {
                 int i = queue.First;
             });
@@ -207,7 +242,7 @@ namespace UnitTests
 
             Assert.AreEqual(10, queue.Length);
 
-            for(int i=0; i <10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 Assert.AreEqual(i, queue.First);
                 queue.Dequeue();
@@ -219,6 +254,28 @@ namespace UnitTests
         public void TestQueueLast()
         {
             // zach
+
+            var queue = new Queue<int>();
+            Assert.ThrowsException<EmptyQueueException>(() =>
+            {
+                int x = queue.Last;
+            });
+
+            for (int i = 0; i < 10; i++)
+            {
+                queue.Enqueue(i);
+                Assert.AreEqual(i, queue.Last);
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                queue.Dequeue();
+            }
+
+            Assert.ThrowsException<EmptyQueueException>(() =>
+            {
+                int x = queue.Last;
+            });
         }
 
         [TestMethod]
@@ -366,7 +423,7 @@ namespace UnitTests
             // kenan
             Deque<int> deque = new Deque<int>();
 
-            deque.AddBack(1); 
+            deque.AddBack(1);
             deque.AddBack(2);
             deque.AddBack(3);
             deque.AddBack(4);
@@ -450,7 +507,35 @@ namespace UnitTests
         [TestMethod]
         public void TestDequeBack()
         {
-            // bryce 
+            // bryce
+
+            Deque<int> myDeque = new Deque<int>();
+
+            Assert.ThrowsException<EmptyQueueException>(() =>
+            {
+                var back = myDeque.Back;
+            });
+
+            for (int i = 0; i < 5; i++)
+            {
+                myDeque.AddBack(i);
+            }
+
+            Assert.AreEqual(myDeque.Back, 4);
+
+            myDeque.AddBack(5);
+            myDeque.AddFront(6);
+
+            Assert.AreEqual(myDeque.Back, 5);
+
+            myDeque.RemoveBack();
+            myDeque.RemoveBack();
+
+            Assert.AreEqual(myDeque.Back, 3);
+
+            myDeque.RemoveFront();
+
+            Assert.AreEqual(myDeque.Back, 3);
         }
     }
 }

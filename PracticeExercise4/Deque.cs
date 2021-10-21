@@ -18,7 +18,21 @@ namespace PracticeExercise4
 
         public T Front => linkedList.First.Value;
 
-        public T Back => linkedList.Last.Value;
+        public T Back
+        {
+            get
+            {
+                if (IsEmpty)
+                {
+                    throw new EmptyQueueException();
+                }
+                else
+                {
+                    return linkedList.Last.Value;
+                }
+            }
+        }
+
 
         public void AddBack(T item)
         {
